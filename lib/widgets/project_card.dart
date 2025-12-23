@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:protfolio/utils/project_utils.dart';
 
 import '../constants/colors.dart';
-import 'dart:js' as js;
+import 'package:protfolio/utils/url_opener.dart' as url_opener;
 
 class ProjectCardWidget extends StatelessWidget {
   const ProjectCardWidget({super.key, required this.project});
@@ -65,18 +65,14 @@ class ProjectCardWidget extends StatelessWidget {
                 Spacer(),
                 if (project.iosLink != null)
                   InkWell(
-                    onTap: () {
-                      js.context.callMethod("open", [project.iosLink]);
-                    },
+                    onTap: () => url_opener.openUrl(project.iosLink!),
                     child: Image.asset("assets/ios_icon.png", width: 19),
                   ),
                 if (project.androidLink != null)
                   Padding(
                     padding: EdgeInsets.only(left: 6),
                     child: InkWell(
-                      onTap: () {
-                        js.context.callMethod("open", [project.androidLink]);
-                      },
+                      onTap: () => url_opener.openUrl(project.androidLink!),
                       child: Image.asset("assets/android_icon.png", width: 17),
                     ),
                   ),
@@ -84,9 +80,7 @@ class ProjectCardWidget extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 6),
                     child: InkWell(
-                      onTap: () {
-                        js.context.callMethod("open", [project.webLink]);
-                      },
+                      onTap: () => url_opener.openUrl(project.webLink!),
                       child: Image.asset("assets/web_icon.png", width: 17),
                     ),
                   ),

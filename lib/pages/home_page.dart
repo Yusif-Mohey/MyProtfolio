@@ -7,7 +7,7 @@ import 'package:protfolio/widgets/main_mobile.dart';
 import 'package:protfolio/widgets/project_section.dart';
 import 'package:protfolio/widgets/skills_desktop.dart';
 import 'package:protfolio/widgets/skills_mobile.dart';
-import 'dart:js' as js;
+import 'package:protfolio/utils/url_opener.dart' as url_opener;
 import '../constants/size.dart';
 
 import '../widgets/drawer_mobile.dart';
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
   void scrollToSection(int navIndex) {
     if (navIndex == 4) {
       // open a blog page
-      js.context.callMethod('open', [SnsLinks.leetCode]);
+      url_opener.openUrl(SnsLinks.leetCode);
       return;
     }
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
+import 'package:protfolio/utils/url_opener.dart' as url_opener;
 import 'package:http/http.dart' as http;
 
 import '../constants/colors.dart';
@@ -216,7 +216,7 @@ class _ContactSectionState extends State<ContactSection> {
 
   Widget _socialIcon(String asset, String url) {
     return InkWell(
-      onTap: () => js.context.callMethod('open', [url]),
+      onTap: () => url_opener.openUrl(url),
       child: Image.asset(asset, width: 28),
     );
   }
